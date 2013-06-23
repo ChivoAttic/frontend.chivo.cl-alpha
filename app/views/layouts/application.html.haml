@@ -1,9 +1,56 @@
 !!!
 %html
   %head
-    %title Chivo
+    %title CHIVO | alpha
     = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = yield
+    .container
+      .row
+        .span12
+          %h1
+            = link_to root_path do 
+              CHIVO
+              %small Chilean Virtual Observatory
+          .navbar
+            .navbar-inner
+              %ul.nav
+                %li.dropdown
+                  %a#drop1.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                    Science
+                    %b.caret
+                  %ul.dropdown-menu{"aria-labelledby" => "drop1", :role => "menu"}
+                    %li
+                      %a{:href => "#", :tabindex => "-1"}Science 1
+                    %li
+                      %a{:href => "#", :tabindex => "-1"}Science 2
+                %li.dropdown
+                  %a.drop2.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                    Technical
+                    %b.caret
+                  %ul.dropdown-menu{"aria-labelledby" => "drop2", :role => "menu"}
+                    %li
+                      %a{:href => "#", :tabindex => "-1"}Technical 1
+                    %li
+                      %a{:href => "#", :tabindex => "-1"}Technical 2
+                %li.dropdown
+                  %a.drop3.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                    Tutorials
+                    %b.caret
+                  %ul.dropdown-menu{"aria-labelledby" => "drop3", :role => "menu"}
+                    %li
+                      %a{:href => "#", :tabindex => "-1"}Tutorials 1
+                    %li
+                      %a{:href => "#", :tabindex => "-1"}Tutorials 2
+                %li.dropdown
+                  %a.drop4.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                    Services
+                    %b.caret
+                  %ul.dropdown-menu{"aria-labelledby" => "drop4", :role => "menu"}
+                    %li
+                      %a{:href => query_path, :tabindex => "-1"}Query form
+                %li
+                  %a{:href => "#"}About
+      = yield
+      
+      = javascript_include_tag "application"

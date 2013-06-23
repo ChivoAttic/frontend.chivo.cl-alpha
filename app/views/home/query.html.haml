@@ -1,0 +1,19 @@
+.row
+  .span12
+    .page-header
+      %h1 Query form
+
+    / Navbar
+    %ul.nav.nav-tabs
+      %li.active
+        %a{:href => "#simplequery", "data-toggle" => "tab"}Simple Query
+      %li
+        %a{:href => "#advancequery", "data-toggle" => "tab"}Advance Query
+
+
+/ Navbar content
+.tab-content
+  #simplequery.tab-pane.active
+    = render(:partial => "simplequery")
+  #advancequery.tab-pane
+    = render(:partial => "advancequery")

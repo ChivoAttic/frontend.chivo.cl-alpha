@@ -1,0 +1,7 @@
+= simple_form_for '/search', html: { class: 'form-horizontal' }, defaults: { :required => false } do |f|
+  = f.input :source, label: 'Source name (Sesame)'
+  = f.input :source, label: 'Source name (ALMA)'
+  = f.input :radec, label: 'RA Dec'
+  = f.input :radius, label: 'Search radius'
+  .form-actions
+    = f.button :submit, 'Search'

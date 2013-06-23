@@ -10,7 +10,10 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'figaro'
+  gem 'rspec-rails', '~> 2.0'
 end
+
+gem 'mysql2', group: :production
 
 # Gems used only for assets and not required
 # in production environments by default.

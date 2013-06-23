@@ -1,0 +1,35 @@
+= simple_form_for '/search', defaults: { :required => false } do |f|
+  .row
+    .span4
+      .page-header
+        %h4 Position
+      = f.input :source, label: 'Source name (Sesame)'
+      = f.input :source, label: 'Source name (ALMA)'
+      = f.input :radec, label: 'RA Dec'
+      = f.input :radius, label: 'Search radius'
+    .span4
+      .page-header
+        %h4 Energy
+      = f.input :source, label: 'Source name (Sesame)'
+      = f.input :source, label: 'Source name (ALMA)'
+      = f.input :radec, label: 'RA Dec'
+      = f.input :radius, label: 'Search radius'
+    .span4
+      .page-header
+        %h4 Time
+      = f.input :source, label: 'Source name (Sesame)'
+      = f.input :source, label: 'Source name (ALMA)'
+      = f.input :radec, label: 'RA Dec'
+      = f.input :radius, label: 'Search radius'
+  .row
+    .span4
+      .page-header
+        %h4 Polarisation type
+      = f.input :source, label: 'Source name (Sesame)'
+      = f.input :source, label: 'Source name (ALMA)'
+      = f.input :radec, label: 'RA Dec'
+      = f.input :radius, label: 'Search radius'
+  .row
+    .span12
+      .form-actions
+        = f.button :submit, 'Search'
