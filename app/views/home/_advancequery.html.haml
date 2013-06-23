@@ -3,32 +3,47 @@
     .span4
       .page-header
         %h4 Position
-      = f.input :source, label: 'Source name (Sesame)'
+      = f.input :source, label: 'Source name (Sesame)', as: :integer
       = f.input :source, label: 'Source name (ALMA)'
       = f.input :radec, label: 'RA Dec'
       = f.input :radius, label: 'Search radius'
     .span4
       .page-header
         %h4 Energy
-      = f.input :source, label: 'Source name (Sesame)'
-      = f.input :source, label: 'Source name (ALMA)'
-      = f.input :radec, label: 'RA Dec'
-      = f.input :radius, label: 'Search radius'
+      = f.label 'Frequency', required: false
+      .input-append.input-prepend
+        = f.input_field :f1, class: "span2", id: "appendedInput", as: :integer
+        %span.add-on to
+        = f.input_field :f2, class: "span2", id: "prependedInput", as: :integer
+      = f.label 'Bandwidth', required: false
+      .input-append.input-prepend
+        = f.input_field :b1, class: "span2", id: "appendedInput", as: :decimal
+        %span.add-on to
+        = f.input_field :b2, class: "span2", id: "prependedInput", as: :decimal
+      = f.label 'Spectral resolution', required: false
+      .input-append.input-prepend
+        = f.input_field :sr1, class: "span2", id: "appendedInput", as: :integer
+        %span.add-on to
+        = f.input_field :sr2, class: "span2", id: "prependedInput", as: :integer
+      = f.input :bands, :collection => [['3 (84-116 Ghz)'], ['6 (211-275 Ghz)'], ['7 (275-373 Ghz'], ['9 (602-720 Ghz)']], :as => :check_boxes, :label => 'Band'
     .span4
       .page-header
         %h4 Time
-      = f.input :source, label: 'Source name (Sesame)'
-      = f.input :source, label: 'Source name (ALMA)'
-      = f.input :radec, label: 'RA Dec'
-      = f.input :radius, label: 'Search radius'
+      = f.label 'Observation date', required: false
+      = f.input_field :date1, as: :date, class: 'input-mini'
+      %p to
+      = f.input_field :date2, as: :date, class: 'input-mini'
+
+      = f.label 'Integration time', required: false
+      .input-append.input-prepend
+        = f.input_field :it1, class: "span1", id: "appendedInput", as: :decimal
+        %span.add-on to
+        = f.input_field :it2, class: "span1", id: "prependedInput", as: :decimal
   .row
     .span4
       .page-header
         %h4 Polarisation type
-      = f.input :source, label: 'Source name (Sesame)'
-      = f.input :source, label: 'Source name (ALMA)'
-      = f.input :radec, label: 'RA Dec'
-      = f.input :radius, label: 'Search radius'
+        = f.input :polarisation, :collection => [['Stokes I'], ['Single'], ['Dual'], ['Full']], :as => :check_boxes, :label => 'Polarisation'
   .row
     .span12
       .form-actions
