@@ -1,6 +1,6 @@
 Chivo::Application.routes.draw do
   root to: 'home#index'
-  get 'query' => 'home#query'
+  match 'query' => 'home#query', via: [:post, :get]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

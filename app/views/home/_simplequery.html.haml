@@ -1,4 +1,4 @@
-= simple_form_for '/search', html: { class: 'form-horizontal' }, defaults: { :required => false } do |f|
+= simple_form_for '/search', remote: true, html: { class: 'form-horizontal' }, defaults: { :required => false } do |f|
   .row
     .span12
       .page-header
@@ -9,3 +9,6 @@
       = f.input :radius, label: 'Search radius'
       .form-actions
         = f.button :submit, 'Search'
+  .row
+    .span12
+      #results

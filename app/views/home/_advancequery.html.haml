@@ -1,4 +1,4 @@
-= simple_form_for '/search', defaults: { :required => false } do |f|
+= simple_form_for '/search', defaults: { :required => false }, remote: true do |f|
   .row
     .span4
       .page-header
@@ -30,9 +30,9 @@
       .page-header
         %h4 Time
       = f.label 'Observation date', required: false
-      = f.input_field :date1, as: :date, class: 'input-mini'
+      = f.input_field :date1, as: :date, class: 'input-small'
       %p to
-      = f.input_field :date2, as: :date, class: 'input-mini'
+      = f.input_field :date2, as: :date, class: 'input-small'
 
       = f.label 'Integration time', required: false
       .input-append.input-prepend
@@ -43,8 +43,12 @@
     .span4
       .page-header
         %h4 Polarisation type
-        = f.input :polarisation, :collection => [['Stokes I'], ['Single'], ['Dual'], ['Full']], :as => :check_boxes, :label => 'Polarisation'
+      = f.input :polarisation, :collection => [['Stokes I'], ['Single'], ['Dual'], ['Full']], :as => :check_boxes, :label => 'Polarisation'
   .row
     .span12
       .form-actions
         = f.button :submit, 'Search'
+
+  .row
+    .span12
+      #results
