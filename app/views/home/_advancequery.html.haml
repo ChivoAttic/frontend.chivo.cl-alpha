@@ -1,50 +1,32 @@
-= simple_form_for '/search', defaults: { :required => false }, remote: true do |f|
-  .row
-    .span4
-      .page-header
-        %h4 Position
-      = f.input :source, label: 'Source name (Sesame)'
-      = f.input :source, label: 'Source name (ALMA)'
-      = f.input :radec, label: 'RA Dec'
-      = f.input :radius, label: 'Search radius'
-    .span4
-      .page-header
-        %h4 Energy
-      = f.label 'Frequency', required: false
-      .input-append.input-prepend
-        = f.input_field :f1, class: "span2", id: "appendedInput", as: :integer
-        %span.add-on to
-        = f.input_field :f2, class: "span2", id: "prependedInput", as: :integer
-      = f.label 'Bandwidth', required: false
-      .input-append.input-prepend
-        = f.input_field :b1, class: "span2", id: "appendedInput", as: :decimal
-        %span.add-on to
-        = f.input_field :b2, class: "span2", id: "prependedInput", as: :decimal
-      = f.label 'Spectral resolution', required: false
-      .input-append.input-prepend
-        = f.input_field :sr1, class: "span2", id: "appendedInput", as: :integer
-        %span.add-on to
-        = f.input_field :sr2, class: "span2", id: "prependedInput", as: :integer
-      = f.input :bands, :collection => [['3 (84-116 Ghz)'], ['6 (211-275 Ghz)'], ['7 (275-373 Ghz'], ['9 (602-720 Ghz)']], :as => :check_boxes, :label => 'Band'
-    .span4
-      .page-header
-        %h4 Time
-      = f.label 'Observation date', required: false
-      = f.input_field :date1, as: :date, class: 'input-small'
-      %p to
-      = f.input_field :date2, as: :date, class: 'input-small'
-
-      = f.label 'Integration time', required: false
-      .input-append.input-prepend
-        = f.input_field :it1, class: "span1", id: "appendedInput", as: :decimal
-        %span.add-on to
-        = f.input_field :it2, class: "span1", id: "prependedInput", as: :decimal
-  .row
-    .span4
-      .page-header
-        %h4 Polarisation type
-      = f.input :polarisation, :collection => [['Stokes I'], ['Single'], ['Dual'], ['Full']], :as => :check_boxes, :label => 'Polarisation'
+= simple_form_for '/search', html: { class: 'form-horizontal' }, defaults: { :required => false }, remote: true do |f|
   .row
     .span12
+      .page-header
+        %h4 Advance Query
+      = f.input :product_type, label: 'Product Type'
+      = f.input :calib_level, label: 'Calibration Level', as: :integer
+      = f.input :obs_collection, label: 'Data collecion'
+      = f.input :obs_id, label: 'Observation ID'
+      = f.input :obs_publisher_did, label: 'Dataset identifier'
+      = f.input :access_url, label: 'Access URL'
+      = f.input :access_format, label: 'File content format'
+      = f.input :access_estsize, label: 'Estimated Size', as: :integer
+      = f.input :target_name, label: 'Astronomical object observed'
+      = f.input :s_ra, label: 'RA', as: :integer
+      = f.input :s_dec, label: 'Dec', as: :integer
+      = f.input :s_fov, label: 'FOV', as: :integer
+      = f.input :s_region, label: 'Region'
+      = f.input :s_resolution, label: 'Resolution', as: :float
+      = f.input :t_min, as: :integer, label: 'Start time'
+      = f.input :t_max, as: :integer, label: 'Stop time'
+      = f.input :t_exptime, as: :float, label: 'Exposure time'
+      = f.input :t_resolution, as: :float, label: 'Temporal resolucion'
+      = f.input :en_min, as: :integer, label: 'Start spectral coordinates'
+      = f.input :en_max, as: :integer, label: 'Stop spectral coordinates'
+      = f.input :em_res_power, as: :integer, label: 'Spectral resolving power'
+      = f.input :o_ucd, label: 'UCD'
+      = f.input :pol_states, label: 'Polarization states'
+      = f.input :facility_name, label: 'Facility name'
+      = f.input :instrument_name, label: 'Instrument name'
       .form-actions
         = f.button :submit, 'Search'
