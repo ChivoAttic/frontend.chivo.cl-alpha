@@ -8,4 +8,20 @@ class HomeController < ApplicationController
       format.js
     end
   end
+
+  def conesearch
+    
+  end
+
+  def imagesearch
+    
+  end
+
+  def spectralsearch
+    
+  end
+
+  def tablesearch
+    
+  end
 end
