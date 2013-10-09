@@ -1,7 +1,4 @@
 Chivo::Application.routes.draw do
-  resources :posts
-
-
   root to: 'home#index'
   match 'query' => 'home#query', via: [:post, :get]
   match 'conesearch' => 'home#conesearch', via: [:get, :post]
