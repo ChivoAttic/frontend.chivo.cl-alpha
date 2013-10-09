@@ -1,0 +1,11 @@
+.page-header
+  %h1 Simple Image Search
+
+= simple_form_for '#', html: { class: 'form-horizontal' }, defaults: { required: false }  do |f|
+  = f.input :ra, as: :float, label: 'RA'
+  = f.input :dec, as: :float, label: 'DEC'
+  = f.input :angular, as: :float, label: 'Angular Size'
+  = f.input :format do 
+    = f.select :format, ["FITS", "VOtable", "JPG"]
+  .form-actions
+    = f.button :submit, 'Search'

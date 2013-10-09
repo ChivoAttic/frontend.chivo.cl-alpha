@@ -1,0 +1,11 @@
+.page-header
+  %h1 Simple Cone Search
+
+= simple_form_for '#', html: { class: 'form-horizontal' }, defaults: { required: false }  do |f|
+  = f.input :ra, as: :float, label: 'RA'
+  = f.input :dec, as: :float, label: 'DEC'
+  = f.input :radius, as: :float, label: 'Radius (SR)'
+  = f.input :verbose do
+    = f.select :verbose, [1, 2, 3]
+  .form-actions
+    = f.button :submit, 'Search'

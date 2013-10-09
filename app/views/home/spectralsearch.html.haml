@@ -1,0 +1,11 @@
+.page-header
+  %h1 Simple Spectral Search
+
+= simple_form_for '#', html: { class: 'form-horizontal' }, defaults: { required: false }  do |f|
+  = f.input :ra, as: :float, label: 'RA'
+  = f.input :dec, as: :float, label: 'DEC'
+  = f.input :diameter, as: :float, label: 'Diameter'
+  = f.input :format do
+    = f.select :format, ["FITS", "VOTable", "XML", "Native", "Graphic"]
+  .form-actions
+    = f.button :submit, 'Search'

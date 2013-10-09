@@ -1,0 +1,9 @@
+.page-header
+  %h1 Simple Table Search
+
+= simple_form_for '#', html: { class: 'form-horizontal' }, defaults: { required: false }  do |f|
+  = f.input :language do
+    = f.select :language, ["ABQL", "PQL"]
+  = f.input :query, as: :text, input_html: { class: 'input-xxlarge', rows: 5 }
+  .form-actions
+    = f.button :submit, 'Search'
