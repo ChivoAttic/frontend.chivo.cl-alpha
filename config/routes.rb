@@ -1,6 +1,14 @@
 Chivo::Application.routes.draw do
+  resources :posts
+
+
   root to: 'home#index'
   match 'query' => 'home#query', via: [:post, :get]
+  match 'conesearch' => 'home#conesearch', via: [:get, :post]
+  match 'imagesearch' => 'home#imagesearch', via: [:get, :post]
+  match 'spectralsearch' => 'home#spectralsearch', via: [:get, :post]
+  match 'tablesearch' => 'home#tablesearch', via: [:get, :post]
+  match 'advancesearch' => 'home#advancesearch', via: [:get, :post]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

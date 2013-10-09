@@ -47,8 +47,16 @@
                     Services
                     %b.caret
                   %ul.dropdown-menu{"aria-labelledby" => "drop4", :role => "menu"}
+                    %li.nav-header IVOA
                     %li
-                      %a{:href => query_path, :tabindex => "-1"}Query form
+                      %a{:href => conesearch_path} Cone Search
+                      %a{:href => imagesearch_path} Image Search
+                      %a{:href => spectralsearch_path} Specral Search
+                      %a{:href => tablesearch_path} Table Search
+                    %li.divider 
+                    %li.nav-header Advance
+                    %li 
+                      %a{:href => "#"} Advance Search
                 %li
                   %a{:href => "#"}About
       = yield
