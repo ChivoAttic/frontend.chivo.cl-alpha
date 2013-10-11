@@ -3,7 +3,7 @@
 
 = simple_form_for '#', html: { class: 'form-horizontal' }, defaults: { required: false }  do |f|
   = f.input :language do
-    = f.select :language, ["ABQL", "PQL"]
+    = f.select :language, ["ADQL", "PQL"]
   = f.input :query, as: :text, input_html: { class: 'input-xxlarge', rows: 5 }
   .form-actions
     = f.button :submit, 'Search'

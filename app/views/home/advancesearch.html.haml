@@ -1,11 +1,62 @@
 .page-header
   %h1 Advance Search
 
-.row
-  .span6
-    = simple_form_for '#', html: { class: 'form-horizontal' }, defaults: { required: false }  do |f|
-      = f.input :language do
-        = f.select :language, ["ABQL", "PQL"]
-      = f.input :query, as: :text, input_html: { class: 'input-xxlarge', rows: 5 }
-      .form-actions
-        = f.button :submit, 'Search'
+= simple_form_for '#', html: { class: 'form-horizontal' }, defaults: { required: false }  do |f|
+  .row
+    .span6
+      %legend Position
+      = f.input :sesame, label: 'Source name (Sesame)', as: :integer
+      = f.input :alma, label: 'Source name (ALMA)', as: :string
+      = f.input :radec, label: 'RA Dec', as: :string
+      = f.input :radius, label: 'Search radius', as: :string, input_html: { value: '0:10:00'}
+
+    .span6
+      %legend Energy
+      = f.input :frequency, label: 'Frequency' do
+        = f.input_field :f1, class: 'span1', type: "number", as: :integer
+        to
+        = f.input_field :f2, class: 'span1', type: "number", as: :integer
+      = f.input :bandwidth, label: 'Bandwidth' do
+        = f.input_field :b1, class: 'span1', as: :float, type: :number, step: :any
+        to
+        = f.input_field :b2, class: 'span1', as: :float, type: :number, step: :any
+      = f.input :spectral, label: 'Spectral resolution' do
+        = f.input_field :s1, class: 'span1', as: :integer, type: :number
+        to
+        = f.input_field :s2, class: 'span1', as: :integer, type: :number
+      = f.input :band, label: 'Band', collection: [2,6,7,9], as: :check_boxes
+
+  .row
+    .span6
+      %legend Time
+      = f.input :otime, label: 'Observation time' do 
+        = f.input_field :t1, as: :date, class: 'span1'
+        to
+        <br>
+        = f.input_field :t2, as: :date, class: 'span1'
+      = f.input :integration, label: 'Integration time' do
+        = f.input_field :i1, as: :float, type: :number, step: :any, class: 'span1'
+        to
+        = f.input_field :i2, as: :float, type: :number, step: :any, class: 'span1'
+    .span6
+      %legend Polarisation
+      = f.input :pol, label: 'Polarisation type', collection: ["Stoke I", "Single", "Dual", "Full"], as: :check_boxes
+  
+  .row
+    .span6
+      %legend Observation
+      = f.input :water, label: 'Water vapour', as: :float
+      = f.input :scan, label: 'Scan intent', collection: ["Observe target", "Amplitude", "Bandpass", "Phase", "Pointing"], as: :check_boxes
+
+    .span6
+      %legend Project
+      = f.input :code, label: 'Project code', as: :string
+      = f.input :title, label: 'Project title', as: :string
+      = f.input :pi, label: 'PI Name', as: :string
+
+  .row
+    .span6
+      %legend Options
+      = f.input :view, collection: ["raw data", "project"], as: :check_boxes
+  .form-actions
+    = f.button :submit, 'Search'
